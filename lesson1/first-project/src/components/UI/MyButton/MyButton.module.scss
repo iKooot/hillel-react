@@ -1,11 +1,39 @@
 .button {
+  width: 100%;
+  max-width: 100px;
   border: none;
   padding: 10px;
   text-align: center;
-  width: 150px;
   border-radius: 5px;
-  background: #61dafb;
   font-weight: 700;
   font-family: inherit;
   cursor: pointer;
+  transition: all .25s ease-in;
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+.black {
+  border: 1px solid #333333;
+  background: #333333;
+  color: #ffffff;
+  &:hover,
+  &:focus {
+    background: transparent;
+    color: #333333;
+  }
+}
+
+.blue {
+  border: 1px solid #61dafb;
+  background: #61dafb;
+  &:hover,
+  &:focus {
+    border: 1px solid #333333;
+    background: #333333;
+    color: #ffffff;
+  }
 }
