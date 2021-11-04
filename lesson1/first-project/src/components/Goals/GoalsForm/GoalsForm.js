@@ -11,7 +11,9 @@ function GoalsForm({title = 'Custom title', onAddGoal}) {
   const onSubmitHandler = e => {
     e.preventDefault()
 
-    onAddGoal(goalHandler.value)
+    if(formIsValid) {
+      onAddGoal(goalHandler.value)
+    }
 
     goalHandler.clear()
   }
