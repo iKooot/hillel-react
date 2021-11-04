@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import './App.css';
 
 import GoalsForm from "./components/Goals/GoalsForm/GoalsForm";
 import GoalsList from "./components/Goals/GoalsList/GoalsList";
