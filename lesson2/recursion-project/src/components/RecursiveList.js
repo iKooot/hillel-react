@@ -8,6 +8,7 @@ export default class RecursiveList extends Component {
 
     return (
         <div className="list-wrapper">
+          <h2>List start</h2>
           <ul>
             {this.props.data.map( el => {
               if (el.type === 'dir') {
