@@ -6,10 +6,6 @@ import ListTitle from "./ListTitle";
 export default class List extends Component {
   render() {
     const {dataArr} = this.props
-    //it`s helper for better UI))) It`s not necessary
-    const nameTransform = (name) => {
-      return name[0].toUpperCase() + name.slice(1)
-    }
 
     return (
         <ul>
@@ -17,7 +13,7 @@ export default class List extends Component {
             if (el.type === 'dir') {
               return (
                   <li key={el.id}>
-                    <ListTitle name={nameTransform(el.name)} type={el.type}/>
+                    <ListTitle name={el.name} type={el.type}/>
                     <List dataArr={el.children}/>
                   </li>
               )
