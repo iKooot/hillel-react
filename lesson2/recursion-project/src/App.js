@@ -24,7 +24,7 @@ class App extends Component {
   }
 }
 
-const DirTitle = ({name, type}) => {
+const DirTitle = ({name}) => {
   return (
       <div className="title-wrapper">
         <div className="icon">&#10095;</div>
@@ -45,7 +45,7 @@ const ListElement = ({name}) => {
 
   return (
       <li className="title-wrapper">
-        <div className="icon-wrapper"><img src={icon} alt=""/></div>
+        <div className="icon-wrapper"><img src={icon} alt={name}/></div>
         <p className="parent-list">{name}</p>
       </li>
   )
