@@ -31,18 +31,23 @@ const DirTitle = ({name}) => {
 }
 
 const List = ({dataArr}) => {
+  //it`s helper for better UI))) It`s not necessary
+  const nameTransform = (name) => {
+     return name[0].toUpperCase() + name.slice(1)
+  }
+
   return (
       <ul>
         {dataArr.map( el => {
           if (el.type === 'dir') {
             return (
                 <li>
-                  <DirTitle name={el.name}/>
+                  <DirTitle name={nameTransform(el.name)}/>
                   <List dataArr={el.children}/>
                 </li>
             )
           } else {
-            return ( <li>{el.name}</li> )
+            return ( <li>{nameTransform(el.name)}</li> )
           }
         })}
       </ul>
