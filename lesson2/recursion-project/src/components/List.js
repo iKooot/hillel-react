@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import ListItem from "./ListItem";
-import ListTitle from "./ListTitle";
 
 
 export default class List extends Component {
@@ -12,10 +11,9 @@ export default class List extends Component {
           {dataArr.map( el => {
             if (el.type === 'dir') {
               return (
-                  <li key={el.id}>
-                    <ListTitle name={el.name} type={el.type}/>
+                  <ListItem name={el.name} type={el.type} key={el.id}>
                     <List dataArr={el.children}/>
-                  </li>
+                  </ListItem>
               )
             } else {
               return ( <ListItem key={el.id} name={el.name}/>)

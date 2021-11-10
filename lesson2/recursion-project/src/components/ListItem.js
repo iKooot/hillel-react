@@ -2,30 +2,29 @@ import React, {Component} from 'react'
 import PDF from "../assets/pdf.svg";
 import EXEL from "../assets/xlsx.svg";
 import DOC from "../assets/docx.svg";
+import FOLDER from "../assets/folder.svg"
 
 
 export default class ListItem extends Component {
   render() {
-    const {name} = this.props
-
+    const {name, type} = this.props
     let icon = PDF
 
-    if (/\.xlsx/mg.test(name)) {
-      icon = EXEL
-    }
+    if (/\.xlsx/mg.test(name)) icon = EXEL
 
-    if (/\.docx/mg.test(name)) {
-      icon = DOC
-    }
+    if (/\.docx/mg.test(name)) icon = DOC
 
-
+    if(type === 'dir') icon = FOLDER
 
     return (
-        <li className="title-wrapper">
-          <div className="icon-wrapper">
-            <img src={icon} alt={name}/>
+        <li>
+          <div className="title-wrapper">
+            <div className="icon-wrapper">
+              <img src={icon} alt={name}/>
+            </div>
+            <p className="parent-list">{name}</p>
           </div>
-          <p className="parent-list">{name}</p>
+          {this.props.children}
         </li>
     )
   }
