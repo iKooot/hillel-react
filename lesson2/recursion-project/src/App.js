@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
 import recursiveList from './data/directories.json'
+import PDF from './assets/pdf.svg'
+import EXEL from './assets/xlsx.svg'
+import DOC from './assets/docx.svg'
 
 class App extends Component {
   constructor() {
@@ -21,12 +24,30 @@ class App extends Component {
   }
 }
 
-const DirTitle = ({name}) => {
+const DirTitle = ({name, type}) => {
   return (
       <div className="title-wrapper">
-        <span className="icon">&#10095;</span>
+        <div className="icon">&#10095;</div>
         <p className="parent-list">{name}</p>
       </div>
+  )
+}
+const ListElement = ({name}) => {
+  let icon = PDF
+
+  if (/\.xlsx/mg.test(name)) {
+    icon = EXEL
+  }
+
+  if (/\.docx/mg.test(name)) {
+    icon = DOC
+  }
+
+  return (
+      <li className="title-wrapper">
+        <div className="icon-wrapper"><img src={icon} alt=""/></div>
+        <p className="parent-list">{name}</p>
+      </li>
   )
 }
 
@@ -41,13 +62,13 @@ const List = ({dataArr}) => {
         {dataArr.map( el => {
           if (el.type === 'dir') {
             return (
-                <li>
-                  <DirTitle name={nameTransform(el.name)}/>
+                <li key={el.id}>
+                  <DirTitle name={nameTransform(el.name)} type={el.type}/>
                   <List dataArr={el.children}/>
                 </li>
             )
           } else {
-            return ( <li>{nameTransform(el.name)}</li> )
+            return ( <ListElement key={el.id} name={el.name}/>)
           }
         })}
       </ul>
