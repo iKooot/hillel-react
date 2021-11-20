@@ -23,31 +23,31 @@ class Articls extends Component {
     const filteredNews = this.state.newsList.filter(el => {
       const {filters} = this.state
 
-      if(filters?.special && !filters?.pic && !filters?.link) {
+      if(filters?.isSpecial) {
         return el.isSpecial
       }
 
-      if(!filters?.special && filters?.pic && !filters?.link) {
+      if(filters?.photo) {
         return el.photo
       }
 
-      if(!filters?.special && !filters?.pic && filters?.link) {
+      if(filters?.link) {
         return el.link
       }
 
-      if(filters?.special && filters?.pic && !filters?.link) {
+      if(filters?.isSpecial && filters?.photo && !filters?.link) {
         return el.isSpecial && el.photo
       }
 
-      if(!filters?.special && filters?.pic && filters?.link) {
+      if(!filters?.isSpecial && filters?.photo && filters?.link) {
         return el.link && el.photo
       }
 
-      if(filters?.special && !filters?.pic && filters?.link) {
+      if(filters?.isSpecial && !filters?.photo && filters?.link) {
         return el.link && el.isSpecial
       }
 
-      if(filters?.special && filters?.pic && filters?.link) {
+      if(filters?.isSpecial && filters?.photo && filters?.link) {
         return el.link && el.isSpecial && el.photo
       }
 

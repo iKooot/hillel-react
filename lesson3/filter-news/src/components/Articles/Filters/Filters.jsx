@@ -5,21 +5,23 @@ class Filters extends Component {
 
   render() {
     return (
-        <div className={classes["filters-wrapper"]}>
-          <div>
-            <label htmlFor="special">По "special"</label>
-            <input onChange={this.props.onChange} type="checkbox" id="special" value="special"/>
+        <>
+          <h3 className={classes.title}>Filter by:</h3>
+          <div className={classes["filters-wrapper"]}>
+            <div>
+              <input onChange={this.props.onChange} type="checkbox" id="isSpecial" value="isSpecial"/>
+              <label htmlFor="isSpecial">Special</label>
+            </div>
+            <div>
+              <input onChange={this.props.onChange} type="checkbox" id="photo" value="photo"/>
+              <label htmlFor="photo">Photo</label>
+            </div>
+            <div>
+              <input onChange={this.props.onChange} type="checkbox" id="link" value="link"/>
+              <label htmlFor="link">Link</label>
+            </div>
           </div>
-          <div>
-            <label htmlFor="pic">По картинке</label>
-            <input onChange={this.props.onChange} type="checkbox" id="pic" value="pic"/>
-          </div>
-          <div>
-            <label htmlFor="link">По ссылке</label>
-            <input onChange={this.props.onChange} type="checkbox" id="link" value="link"/>
-          </div>
-          <button type="button">Фильтровать</button>
-        </div>
+        </>
     );
   }
 }

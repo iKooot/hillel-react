@@ -8,25 +8,42 @@
   div {
     display: flex;
     align-items: center;
+    justify-content: center;
+
     label {
-      margin-right: 10px;
+      flex: 1 0 150px;
+      background: #61dafb;
+      padding: 5px;
+      border-radius: 5px;
+      color: #333333;
+      transition: all .25s ease;
+      cursor: pointer;
+      text-align: center;
+
+      &:hover,
+      &:focus {
+        transform: scale(1.05);
+      }
+
     }
-  }
 
-  button {
-    width: 100%;
-    max-width: 120px;
-    padding: 5px;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    background: #61dafb;
-    cursor: pointer;
-    transition: background .25s ease;
-
-    &:hover,
-    &:focus {
+    input[type="checkbox"]:checked + label {
+      box-shadow:  inset 1px 1px 5px rgba(0, 0, 0, .25);
       background: white;
     }
+
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      z-index: -1000;
+    }
   }
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 20px;
 }
