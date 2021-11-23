@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import classes from "./ArticleCatigories.module.scss"
+import PropTypes from 'prop-types';
 
 class ArticleCategories extends Component {
   render() {
@@ -14,6 +15,10 @@ class ArticleCategories extends Component {
         </div>
     );
   }
+}
+
+ArticleCategories.propTypes = {
+  list: PropTypes.array,
 }
 
 export default ArticleCategories;

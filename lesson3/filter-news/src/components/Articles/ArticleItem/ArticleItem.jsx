@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import classes from './ArticleItem.module.scss'
+import PropTypes from 'prop-types';
+
 
 import Article from "../Article/Article";
 import MyLink from "../../UI/MyLink/MyLink";
+import Filters from "../Filters/Filters";
 
 class ArticleItem extends Component {
   render() {
@@ -16,6 +19,10 @@ class ArticleItem extends Component {
         </li>
     );
   }
+}
+
+Filters.propTypes = {
+  article: PropTypes.object,
 }
 
 export default ArticleItem;

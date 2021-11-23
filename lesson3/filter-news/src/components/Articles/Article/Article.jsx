@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import classes from "./Article.module.scss";
 
 import ArticleCategories from "../ArticleCategories/ArticleCategories";
+import PropTypes from "prop-types";
 
 class Article extends Component {
   dateTransformer = (date) => {
@@ -55,6 +56,19 @@ class Article extends Component {
         </article>
     );
   }
+}
+
+Article.defaultProps = {
+  author: PropTypes.string,
+  categories: PropTypes.array,
+  content: PropTypes.any,
+  dateCreated: PropTypes.string,
+  id: PropTypes.string,
+  index: PropTypes.number,
+  isSpecial: PropTypes.bool,
+  link: PropTypes.string | PropTypes.oneOf([null]),
+  photo: PropTypes.string,
+  title: PropTypes.string,
 }
 
 export default Article;

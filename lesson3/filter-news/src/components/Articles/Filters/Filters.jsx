@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import classes from "./Filters.module.scss"
+import PropTypes from 'prop-types';
 
 class Filters extends Component {
 
@@ -24,6 +25,10 @@ class Filters extends Component {
         </>
     );
   }
+}
+
+Filters.propTypes = {
+  onChange: PropTypes.func,
 }
 
 export default Filters;

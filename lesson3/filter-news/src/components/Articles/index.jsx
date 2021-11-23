@@ -4,9 +4,14 @@ import dataList from '../../data/news.json'
 import ArticleItem from "./ArticleItem/ArticleItem";
 import Filters from "./Filters/Filters";
 
-class Articls extends Component {
+class Articles extends Component {
   state = {
-    newsList: dataList
+    newsList: dataList,
+    filters: {
+      isSpecial: false,
+      link: false,
+      photo: false,
+    }
   }
 
   setFilters = ({target}) => {
@@ -20,35 +25,20 @@ class Articls extends Component {
   }
 
   render() {
+
     const filteredNews = this.state.newsList.filter(el => {
       const {filters} = this.state
 
-      if(filters?.isSpecial) {
-        return el.isSpecial
+      if (filters.isSpecial && !el.isSpecial) {
+        return false
       }
 
-      if(filters?.photo) {
-        return el.photo
+      if (filters.photo && !el.photo) {
+        return false
       }
 
-      if(filters?.link) {
-        return el.link
-      }
-
-      if(filters?.isSpecial && filters?.photo && !filters?.link) {
-        return el.isSpecial && el.photo
-      }
-
-      if(!filters?.isSpecial && filters?.photo && filters?.link) {
-        return el.link && el.photo
-      }
-
-      if(filters?.isSpecial && !filters?.photo && filters?.link) {
-        return el.link && el.isSpecial
-      }
-
-      if(filters?.isSpecial && filters?.photo && filters?.link) {
-        return el.link && el.isSpecial && el.photo
+      if (filters.link && !el.link) {
+        return false
       }
 
       return true
@@ -66,4 +56,4 @@ class Articls extends Component {
   );}
 }
 
-export default Articls;
+export default Articles;
