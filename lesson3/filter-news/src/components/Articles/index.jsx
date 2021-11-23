@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import classes from './Articls.module.scss'
 import dataList from '../../data/news.json'
 import ArticleItem from "./ArticleItem/ArticleItem";
 import Filters from "./Filters/Filters";
+import ArticlesList from "./ArticlesList/ArticlesList";
 
 class Articles extends Component {
   state = {
@@ -44,14 +44,10 @@ class Articles extends Component {
       return true
     })
 
-    const listContent = filteredNews.map((article, index) => <ArticleItem key={article.id} article={{...article, index}}/>)
-
     return (
         <>
           <Filters onChange={this.setFilters}/>
-          <ul className={classes.list}>
-            {listContent}
-          </ul>
+          <ArticlesList list={filteredNews}/>
         </>
   );}
 }
