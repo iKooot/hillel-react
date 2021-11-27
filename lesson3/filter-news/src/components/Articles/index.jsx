@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import dataList from '../../data/news.json'
-import ArticleItem from "./ArticleItem/ArticleItem";
 import Filters from "./Filters/Filters";
 import ArticlesList from "./ArticlesList/ArticlesList";
 

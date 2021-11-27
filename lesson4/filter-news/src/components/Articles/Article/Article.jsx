@@ -66,7 +66,7 @@ Article.defaultProps = {
   id: PropTypes.string,
   index: PropTypes.number,
   isSpecial: PropTypes.bool,
-  link: PropTypes.oneOfType([null, "string"]),
+  link: PropTypes.oneOf([null, "string"]),
   photo: PropTypes.string,
   title: PropTypes.string,
 }
