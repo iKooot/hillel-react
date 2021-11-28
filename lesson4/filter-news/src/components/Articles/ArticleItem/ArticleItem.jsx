@@ -13,7 +13,7 @@ class ArticleItem extends Component {
         <li className={classes.item}>
           {
             this.props.article.link
-              ? <MyLink><Article data={this.props.article}/></MyLink>
+              ? <MyLink link={this.props.article.link}><Article data={this.props.article}/></MyLink>
               : <Article data={this.props.article}/>
           }
         </li>

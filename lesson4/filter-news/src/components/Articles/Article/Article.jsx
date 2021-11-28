@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import classes from "./Article.module.scss";
+import { articleType } from "../../../types/article-type";
 
 import ArticleCategories from "../ArticleCategories/ArticleCategories";
-import PropTypes from "prop-types";
 
 class Article extends Component {
   dateTransformer = (date) => {
@@ -58,17 +58,6 @@ class Article extends Component {
   }
 }
 
-Article.defaultProps = {
-  author: PropTypes.string,
-  categories: PropTypes.array,
-  content: PropTypes.any,
-  dateCreated: PropTypes.string,
-  id: PropTypes.string,
-  index: PropTypes.number,
-  isSpecial: PropTypes.bool,
-  link: PropTypes.oneOf([null, "string"]),
-  photo: PropTypes.string,
-  title: PropTypes.string,
-}
+Article.defaultProps = articleType
 
 export default Article;
