@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import classes from "./Filters.module.scss"
 import Card from "../../UI/Card/Card";
 import PropTypes from 'prop-types';
-import CartCheckbox from "../../UI/CatCheckbox/CartCheckbox";
+import CatCheckbox from "../../UI/CatCheckbox/CatCheckbox";
 
 class Filters extends Component {
 
@@ -15,12 +15,13 @@ class Filters extends Component {
             <input  type="text" id="text-field" onChange={this.props.onChangeText} value={this.props.filters.text}/>
           </Card>
           <Card className={classes["card-wrapper"]}>
+            <h3>Lats filter by categories</h3>
             <div className={classes["cat-filter-wrapper"]}>
-              {this.props.categories.map(cat => <CartCheckbox onChange={this.props.onChangeCategories} key={cat.id} inputAttrs={cat}/>)}
+              {this.props.categories.map(cat => <CatCheckbox className={classes.categories} onChange={this.props.onChangeCategories} key={cat.id} inputAttrs={cat}/>)}
             </div>
           </Card>
           <Card className={classes["card-wrapper"]}>
-            <h3 className={classes.title}>Lats filter by checkbox </h3>
+            <h3>Lats filter by checkbox </h3>
             <div className={classes["filters-wrapper"]}>
               <div>
                 <input onChange={this.props.onChangeCheckbox} type="checkbox" id="isSpecial" value="isSpecial"/>
