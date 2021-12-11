@@ -1,0 +1,35 @@
+.form-wrapper {
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  animation: fadeIn .5s ease;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wrapper {
+  margin-bottom: 10px;
+}
+
+.footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.close {
+  background: white;
+  outline: 1px solid gray;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

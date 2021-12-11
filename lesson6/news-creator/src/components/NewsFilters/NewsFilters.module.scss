@@ -1,0 +1,29 @@
+.container {
+  height: 30px;
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 30px auto;
+
+  input {
+    flex: 1 0 auto;
+    height: calc(100% - 10px);
+    padding: 5px;
+    border: none;
+    outline: none;
+    border-radius: 5px 0 0  5px ;
+    background: aliceblue;
+    color: #333333;
+    font-family: inherit;
+  }
+
+  select {
+    height: 100%;
+    background: #ccc;
+    color: #333;
+    border: none;
+    outline: none;
+    border-radius: 0  5px  5px 0;
+    font-family: inherit;
+  }
+}

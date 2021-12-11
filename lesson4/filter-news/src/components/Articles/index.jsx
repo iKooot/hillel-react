@@ -116,8 +116,6 @@ class Articles extends Component {
         return false
       }
 
-
-
       return true
     })
 

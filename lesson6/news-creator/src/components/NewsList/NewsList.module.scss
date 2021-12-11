@@ -1,0 +1,15 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  &-single {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  article {
+    flex: 1 0 500px;
+  }
+}

@@ -1,0 +1,31 @@
+.list {
+  list-style: none;
+  display: flex;
+  margin-bottom: 10px;
+
+  li {
+    margin-right: 10px;
+  }
+}
+
+.title {
+  font-size: inherit;
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+
+.error {
+  display: inline-block;
+  margin-left: 10px;
+  color: red;
+  font-size: inherit;
+  font-weight: 300;
+}
+
+.success {
+  display: inline-block;
+  margin-left: 10px;
+  color: green;
+  font-size: inherit;
+  font-weight: 300;
+}
