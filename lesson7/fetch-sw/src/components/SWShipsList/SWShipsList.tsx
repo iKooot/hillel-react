@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ShipType, StarShipsListItem} from '../../types/shipType'
+import {StarShipsListItem} from '../../types/shipType'
 import SWShipsItem from "../SWShipsItem/SWShipsItem";
 import classes from "./SWShipsList.module.scss";
 import SWStarShip from "../SWStarShip/SWStarShip";
@@ -18,9 +18,9 @@ class SWShipsList extends Component<MyProps> {
             content = swShips.map(ship => <SWShipsItem key={ship.name} ship={ship} />)
         }
 
-        // if (Array.isArray(swShips)  && swShips.length === 1) {
-        //     content = <SWStarShip key={swShips[0].uid} ship={swShips} />
-        // }
+        if (Array.isArray(swShips) && swShips.length === 1) {
+            content = <SWStarShip key={'swShips.name'} ship={swShips[0]} />
+        }
 
         return (
             <ul className={classes.list}>

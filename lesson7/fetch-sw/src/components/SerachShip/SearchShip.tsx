@@ -24,7 +24,7 @@ class SearchShip extends Component<MyProps> {
                         Enter name or model of Starship
                     </p>
                 </label>
-                <Button onClick={onClick}>Find ship</Button>
+                <Button onClick={onClick} disabled={value === ''}>Find ship</Button>
             </div>
         );
     }

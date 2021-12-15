@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {ShipType, StarShipsListItem} from './types/shipType'
+import {StarShipsListItem} from './types/shipType'
 import SWShipsList from "./components/SWShipsList/SWShipsList";
 import Pagination from "./components/Pagination/Pagination";
 import SearchShip from "./components/SerachShip/SearchShip";
@@ -9,7 +9,7 @@ import ErrorMessage from "./components/UI/ErrorMessage/ErrorMessage";
 type MyProps = {}
 type MyState = {
     status: 'error' | 'loading' | 'success' | string;
-    shipsList: StarShipsListItem[] | ShipType[],
+    shipsList: StarShipsListItem[],
     errorMessage: string;
     searchOptions: {
         value: string;
@@ -95,7 +95,7 @@ class App extends Component<MyProps, MyState> {
             status: 'loading'
         })
 
-        const transformValue = this.state.searchOptions.value.trim()
+        const transformValue = this.state.searchOptions.value.trim().replace(' ', '%20')
 
         try {
             const response = await fetch(`https://www.swapi.tech/api/starships/?search=${transformValue}`, {
@@ -106,12 +106,15 @@ class App extends Component<MyProps, MyState> {
 
             const data = await response.json()
 
-            console.log(data)
-
             this.setState(prev => {
+                const newArray = []
+
+                if (data.result[0]?.properties) {
+                    newArray.push(data.result[0].properties)
+                }
 
                 return {
-                    shipsList: data.result,
+                    shipsList: newArray,
                     status: 'success',
                     pagination: {
                         ...prev.pagination,
@@ -147,7 +150,7 @@ class App extends Component<MyProps, MyState> {
                 {status === 'loading' && <Loader/>}
                 {status === 'success' && <SWShipsList list={this.state.shipsList}/>}
                 {status === 'error' && <ErrorMessage message={this.state.errorMessage}/>}
-                {pagination.totalPage > 1 && <Pagination pageOptions={this.state.pagination} onSetPage={this.changePageHandler}/>}
+                {status === 'success' && pagination.totalPage > 1 && <Pagination pageOptions={this.state.pagination} onSetPage={this.changePageHandler}/>}
             </div>
         );
     }

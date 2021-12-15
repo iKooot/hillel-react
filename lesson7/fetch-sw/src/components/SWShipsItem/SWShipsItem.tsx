@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StarShipsListItem, ShipType} from '../../types/shipType'
+import {StarShipsListItem} from '../../types/shipType'
 import classes from './SWShipsItem.module.scss'
 import Button from "../UI/Button/Button";
 import Loader from "../UI/Loader/Loader";
@@ -12,7 +12,7 @@ type MyProps = {
 }
 
 type MyState = {
-    shipCharacteristics: null | ShipType;
+    shipCharacteristics: null | StarShipsListItem;
     status: 'loading' | 'error' | 'success' | string;
     showCharacteristics: boolean;
     errorMessage: string;
@@ -31,8 +31,10 @@ class SWShipsItem extends Component<MyProps, MyState> {
             status: 'loading'
         })
 
+        const url = this.props.ship.url ? this.props.ship.url : ''
+
         try {
-            const response = await fetch(this.props.ship.url, {
+            const response = await fetch(url, {
                 method: "GET",
             })
 

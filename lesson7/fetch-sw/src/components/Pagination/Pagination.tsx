@@ -9,11 +9,8 @@ type Props = {
     }
     onSetPage: (index: number) => void
 };
-type State = {
 
-};
-
-class Pagination extends React.Component<Props, State> {
+class Pagination extends React.Component<Props> {
 
     onPrevPageHandler = () => {
         let index = this.props.pageOptions.currentPage - 1

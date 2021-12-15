@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {ShipType} from '../../types/shipType'
+import {StarShipsListItem} from '../../types/shipType'
 import classes from './SWStarShipCharacteristics.module.scss'
 
 
 type MyProps = {
-    characteristics: ShipType;
+    characteristics: StarShipsListItem;
 }
 
 class SWStarShipCharacteristics extends Component<MyProps> {
@@ -39,7 +39,7 @@ class SWStarShipCharacteristics extends Component<MyProps> {
                     <li>The class of this starships hyperdrive: <span>{hyperdrive_rating}</span></li>
                     <li>The Maximum number of Megalights this starship can travel in a standard hour: <span>{MGLT}</span></li>
                     <li>The maximum number of kilograms that this starship can transport: <span>{cargo_capacity}</span></li>
-                    {pilots.length > 0 && <li>Starship has been piloted by: <ul className={classes['inner-list']}>{pilots.map((pilot, i) => <li key={pilot}><a
+                    {pilots && pilots.length > 0 && <li>Starship has been piloted by: <ul className={classes['inner-list']}>{pilots.map((pilot, i) => <li key={pilot}><a
                         href={pilot}>Pilot {i + 1}</a></li>)}</ul></li>}
                 </ul>
             </div>
