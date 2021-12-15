@@ -1,0 +1,23 @@
+.button {
+  background: transparent;
+  border: 1px solid aqua;
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all .25s ease;
+
+  &:hover,
+  &:focus {
+    background: white;
+    color: #333333;
+    border-color: white;
+  }
+}
+
+.current {
+  background: white;
+  color: #333333;
+  border: 1px solid white;
+}

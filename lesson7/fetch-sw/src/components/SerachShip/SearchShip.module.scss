@@ -1,0 +1,29 @@
+.wrapper {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  input {
+    flex: 1 0 auto;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+  }
+
+}
+.notification {
+  margin: 0;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  padding: 3.5px;
+  border-radius: 0 5px 5px 0;
+  background: #cccccc;
+  color: #333333;
+}
