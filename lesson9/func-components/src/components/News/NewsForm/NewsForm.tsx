@@ -17,7 +17,9 @@ const NewsForm = ({onAddArticle}: NewsFormType) => {
     const descriptionRef = useRef<HTMLTextAreaElement | null>(null);
     const photoRef = useRef<HTMLInputElement | null>(null);
     const hashtagsRef = useRef<(HTMLInputElement | null)[]>([]);
+    hashtagsRef.current = []
     const authorRef = useRef<(HTMLInputElement | null)[]>([]);
+    authorRef.current = []
 
     const hashtags = [
         {id: Math.random().toString(), label: '#hot'},
@@ -52,10 +54,6 @@ const NewsForm = ({onAddArticle}: NewsFormType) => {
             valid: null,
             errorMessage: 'Choose author'
         }
-    })
-
-    useEffect(() => {
-        console.log('render')
     })
 
     const onSubmitHandler = async (event: React.FormEvent) => {
@@ -128,7 +126,6 @@ const NewsForm = ({onAddArticle}: NewsFormType) => {
         }
 
         hashtagsRef.current.forEach( el => {
-            console.dir(el)
             if (el && el.checked) {
                 hashtag.push(el.name)
             }
@@ -204,12 +201,7 @@ const NewsForm = ({onAddArticle}: NewsFormType) => {
                 <div className={classes.hashtagsWrapper}>
                     {hashtags.map( hashtag => <InputCheckbox
                         key={hashtag.id}
-                        ref={ref => {
-                                if(hashtagsRef.current.findIndex( el => el?.name === hashtag.label) < 0) {
-                                    hashtagsRef.current.push(ref)
-                                }
-                            }
-                        }
+                        ref={ref => hashtagsRef.current.push(ref)}
                         id={hashtag.id}
                         label={hashtag.label}/>)
                     }
@@ -223,11 +215,13 @@ const NewsForm = ({onAddArticle}: NewsFormType) => {
                     }
                 </h3>
                 <div className={classes.authorWrapper}>
-                    {authors.map( author => <InputRadio key={author} ref={ref => {
-                        if(authorRef.current.findIndex( el => el?.name === author) < 0) {
-                            authorRef.current.push(ref)
-                        }
-                    }} id={author} label={author} name="author" />)}
+                    {authors.map( author => <InputRadio
+                        key={author} 
+                        ref={ref => authorRef.current.push(ref)}
+                        id={author}
+                        label={author}
+                        name="author" />)
+                    }
                 </div>
             </div>
 
