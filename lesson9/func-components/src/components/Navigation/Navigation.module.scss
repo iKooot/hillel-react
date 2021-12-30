@@ -1,0 +1,24 @@
+@import '../../styles/_mixins';
+
+.list {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+
+  li {
+    color: #333333;
+    a {
+      font-weight: 500;
+      @include NavLink;
+
+      &.active {
+        color: aqua;
+
+        &:hover,
+        &:focus {
+          color: white;
+        }
+      }
+    }
+  }
+}

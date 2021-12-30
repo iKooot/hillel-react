@@ -1,0 +1,19 @@
+.list {
+  justify-content: space-around;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  list-style: none;
+
+  &-single {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    list-style: none;
+  }
+
+  & > li {
+    flex: 1 0 500px;
+  }
+
+}

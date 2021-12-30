@@ -1,0 +1,31 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+}
+
+.error {
+  display: inline-block;
+  margin-left: 10px;
+  color: red;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.success {
+  display: inline-block;
+  margin-left: 10px;
+  color: green;
+  font-size: 12px;
+  font-weight: 300;
+}

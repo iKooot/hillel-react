@@ -1,0 +1,41 @@
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+
+  & > div {
+    margin-bottom: 10px;
+  }
+}
+
+.hashtagsWrapper {
+  display: flex;
+}
+
+.authorWrapper {
+  display: flex;
+}
+
+.button {
+  margin-top: 30px;
+}
+
+.error {
+  display: inline-block;
+  margin-left: 10px;
+  color: red;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.success {
+  display: inline-block;
+  margin-left: 10px;
+  color: green;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.alert {
+  color: firebrick;
+  font-weight: bold;
+}

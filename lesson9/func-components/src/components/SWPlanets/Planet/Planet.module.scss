@@ -1,0 +1,25 @@
+.planet {
+  h1 {
+    text-align: center;
+  }
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  & > li {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
+.describe {
+  font-weight: normal;
+}
+
+.button {
+  margin-top: 30px;
+}

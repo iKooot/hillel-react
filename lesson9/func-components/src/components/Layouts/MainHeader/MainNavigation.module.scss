@@ -1,0 +1,15 @@
+@import "../../../styles/_mixins";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: gray;
+  color: #333333;
+  padding: 10px 5px;
+  margin-bottom: 30px;
+}
+
+.logo {
+  font-weight: bold;
+  @include NavLink;
+}

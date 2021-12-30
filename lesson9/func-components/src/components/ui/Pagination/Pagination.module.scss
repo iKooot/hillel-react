@@ -1,0 +1,37 @@
+.list {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+
+  & > li {
+    text-align: center;
+    width: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 3px;
+    transition: all .25s ease;
+    cursor: pointer;
+
+    &.active {
+      background: aqua;
+      border-color: aqua;
+      color: #333333;
+    }
+
+    &:hover, &:focus {
+      background: aqua;
+      border-color: aqua;
+      color: #333333;
+
+      &.active {
+        background: white;
+        border-color: white;
+        color: #333333;
+      }
+    }
+  }
+
+  & > li.prev, & > li.next {
+    width: fit-content;
+  }
+}
